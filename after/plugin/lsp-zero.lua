@@ -3,14 +3,14 @@ local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
 lsp.preset("recommended")
 local lsp_format_on_save = function(bufnr)
-  vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
-  vim.api.nvim_create_autocmd('BufWritePre', {
-    group = augroup,
-    buffer = bufnr,
-    callback = function()
-      vim.lsp.buf.format()
-    end,
-  })
+     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+     vim.api.nvim_create_autocmd('BufWritePre', {
+          group = augroup,
+          buffer = bufnr,
+          callback = function()
+               vim.lsp.buf.format()
+          end,
+     })
 end
 
 
@@ -18,7 +18,8 @@ lsp.ensure_installed({
      'tsserver',
      'lua_ls',
      'eslint',
-     'gopls'
+     'gopls',
+     'prismals'
 })
 
 -- Fix Undefined global 'vim'
